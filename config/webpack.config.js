@@ -8,7 +8,7 @@ const PATHS = require('./paths');
 // Merge webpack configuration files
 const config = merge(common, {
   entry: {
-    app: PATHS.src + '/app.js',
+    insert: PATHS.src + '/insert.js',
     background: PATHS.src + '/background.js',
   },
 });
