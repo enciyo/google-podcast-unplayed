@@ -1,4 +1,4 @@
-# Google Podcast Feed Hider
+# Google Podcast Unplayed Feed Hider
 
 This extension hides previously played podcasts on Google Podcasts feed pages.
 
