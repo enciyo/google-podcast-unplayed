@@ -1,4 +1,4 @@
-# Google Podcast Unplayed Feed Hider
+# Google Podcast Unplayed Feed
 
 <p align="center">
 <img src="https://github.com/enciyo/google-podcast-unplayed/blob/main/public/icons/icon128.png?raw=true">
