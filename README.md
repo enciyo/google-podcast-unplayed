@@ -2,6 +2,10 @@
 
 This extension hides previously played podcasts on Google Podcasts feed pages.
 
+Coming Soon Chrome Web Store
+![Chrome Web Store]()
+![Chrome Web Store]()
+
 ## Features
 
 - **Extension Toggle**: Users can easily toggle the extension on or off.
@@ -14,10 +18,6 @@ This extension hides previously played podcasts on Google Podcasts feed pages.
 2. Open Google Chrome and navigate to `chrome://extensions/`.
 3. Enable **Developer mode** in the top right corner.
 4. Click on **Load unpacked** and select the directory where the extension files are located.
-
-Alternatively, you can install the extension from the [Chrome Web Store](https://chrome.google.com/webstore/detail/google-podcast-feed-hide/INSERT_EXTENSION_ID_HERE).
-
-![Chrome Web Store](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_496x150.png)
 
 ## Usage
 
