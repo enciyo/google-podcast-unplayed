@@ -1,7 +1,7 @@
 {
   "name": "google-podcast-unplayed",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "Google Podcasts Unplayed",
   "private": true,
   "scripts": {
     "watch": "node ./node_modules/webpack/bin/webpack.js --mode=development --watch --config config/webpack.config.js",
