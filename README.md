@@ -1,11 +1,11 @@
 # Google Podcast Unplayed Feed Hider
 
-<center>
+<p align="center">
 <img src="https://github.com/enciyo/google-podcast-unplayed/blob/main/public/icons/icon128.png?raw=true">
-</center>
-<center>
+</p>
+<p align="center">
 This extension hides previously played podcasts on Google Podcasts feed pages.
-</center>
+</p>
 
 ## Features
 
