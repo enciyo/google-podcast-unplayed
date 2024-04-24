@@ -1,41 +1,62 @@
-'use strict';
+"use strict";
 
-let google_podcasts = "https://podcasts.google.com/feed/";
-
-async function getCurrentTab() {
-  let queryOptions = { active: true, lastFocusedWindow: true };
-  let [tab] = await chrome.tabs.query(queryOptions);
-  return tab
+export async function extensionIsEnabled() {
+  return new Promise((resolve, reject) => {
+    chrome.storage.sync.get(["enabled"], (result) => {
+      resolve(result.enabled);
+    });
+  });
 }
 
+export async function setExtensionEnabled(enabled) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.sync.set({ enabled: enabled }, () => {
+      resolve();
+    });
+  });
+}
 
-function updateBadgeStatus(isActive, tabId) {
+export async function getCurrentTab() {
+  let queryOptions = { active: true, lastFocusedWindow: true };
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
+
+export async function updateBadgeStatus(isActive) {
+  var tab = await getCurrentTab();
   chrome.action.setBadgeText({
-    tabId: tabId,
+    tabId: tab.id,
     text: isActive ? "ON" : "OFF",
   });
 }
 
-function processFeed(tab) {
-  var tab = tab || getCurrentTab();
-  if (tab.url.startsWith(google_podcasts)) {
+
+async function processFeed() {
+  let tab = await getCurrentTab();
+  if (tab.url.startsWith("https://podcasts.google.com/feed") === true){
+    let enabled = await extensionIsEnabled();
+    let inject = enabled ? "insert_hide.js" : "insert_show.js";
     chrome.scripting.executeScript({
-      target: {tabId: tab.id},
-      files: ['insert.js']
+      target: { tabId: tab.id },
+      files: [inject],
     });
-    updateBadgeStatus(true, tab.id);
-  } else{
-    updateBadgeStatus(false, tab.id);
   }
 }
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete') {
-    processFeed(tab)
+  if (changeInfo.status === "complete") {
+    processFeed();
   }
 });
-
-
 chrome.action.onClicked.addListener(async (tab) => {
-  processFeed(tab);
-})
+  await setExtensionEnabled(!(await extensionIsEnabled()));
+  processFeed();
+});
+
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  updateBadgeStatus(changes.enabled.newValue);
+});
+
+chrome.tabs.onActivated.addListener((activeInfo) => {
+  processFeed();
+});

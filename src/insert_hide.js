@@ -1,11 +1,12 @@
 'use strict';
 
-(function() {
+async function execute(){
     document.querySelectorAll("[role='listitem']").forEach(episode => {
         if(episode.innerHTML.includes("polyline")){
-            episode.style.display = 'none';
+            episode.style.display = "none"
         }
     })
-})();
+}
 
+execute()
 
