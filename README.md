@@ -6,6 +6,12 @@
 <p align="center">
 This extension hides previously played podcasts on Google Podcasts feed pages.
 </p>
+<p align="center">
+<a href="https://chromewebstore.google.com/detail/google-podcast-unplayed/eikandcihmcifaeiiieecpdalnljgcmd?hl=tr">Web Store</a>
+</p>
+
+
+
 
 ## Features
 
